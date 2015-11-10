@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+	<data>
+		<spawnTown>
+			<name>The Town of Buckenshire</name>
+		</spawnTown>
+	</data>
+	<locations>
+		<location>
+			<name>The Town of Buckenshire</name>
+			<startingTitle>Welcome, {username} to the great town of Buckenshire! You're new here aren't you? You'll enter Buckenshire every time you enter OnlineRPG, unless of course your in the middle of something, then you'll go where you need to be.</startingTitle>
+			<Image>Buckenshire.jpg</Image>
+			<toLocations>
+				<toLocation>
+					<name>The Buckenshire Tavern</name>
+					<titleName>The Buckenshire Tavern</titleName>
+				</toLocation>
+			</toLocations>
+			<people>
+				<person>
+					<name>Fredrick A. Quackenboss or FAQ</name>
+					<titleName>Fredrick A. Quackenboss</titleName>
+				</person>
+			</people>
+		</location>
+	</locations>
+</main>
