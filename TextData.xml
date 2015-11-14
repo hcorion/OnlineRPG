@@ -12,16 +12,31 @@
 			<Image>Buckenshire.jpg</Image>
 			<toLocations>
 				<toLocation>
-					<name>The Buckenshire Tavern</name>
+					<displayName>The Buckenshire Tavern</displayName>
 					<titleName>The Buckenshire Tavern</titleName>
+				</toLocation>
+                <toLocation>
+					<displayName>The Woodlands to the North</displayName>
+					<titleName>The North Buckenshire Woods</titleName>
 				</toLocation>
 			</toLocations>
 			<people>
 				<person>
-					<name>Fredrick A. Quackenboss or FAQ</name>
+					<displayName>Fredrick A. Quackenboss or FAQ</displayName>
 					<titleName>Fredrick A. Quackenboss</titleName>
 				</person>
 			</people>
+		</location>
+        <location>
+			<name>The North Buckenshire Woods</name>
+			<startingTitle>WhoooOooOoo! Spooky woods! I'm not sure you're allowed to go here yet.</startingTitle>
+			<Image>Buckenshire.jpg</Image>
+			<toLocations>
+				<toLocation>
+					<displayName>Back to Buckenshire</displayName>
+					<titleName>The Town of Buckenshire</titleName>
+				</toLocation>
+            </toLocations>
 		</location>
 	</locations>
 </main>

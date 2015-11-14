@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 		<script src="https://code.jquery.com/jquery-git.js"></script>
 		<script type="text/javascript" src="userdata.json"></script>
-		<script>
+<script>
 //Log In Data
 var username;
 var password;
@@ -25,7 +25,7 @@ $.ajax({
         $(xml).find('main').each(function() {
             $(this).find("data").each(function() {
                 $(this).find("spawnTown").each(function() {
-                    name = $(this).text();
+                    name = ($("name", this).text());
                     alert(name);
                 });
             });
@@ -45,35 +45,75 @@ $.ajax({
 });
 //Called by LogIn() after successful log in.
 function initWorld() {
-		document.getElementById("description").innerHTML = "Welcome to OnlineRPG, " +
-			username + "! It's currently still in development.";
-		document.getElementById("location").innerHTML = "Home Page";
-		document.getElementById("location").innerHTML = name;
-		//Get world startingTitle
-		var desc;
-		$(DaXML).find("locations").each(function() {
-			$(this).find("location").each(function() {
-				$(this).find("startingTitle").each(function() {
-					desc = $(this).text();
-				});
-			});
-		});
-		document.getElementById("description").innerHTML = desc.replace("{username}",
-			username);
-		var image;
-		$(DaXML).find("locations").each(function() {
-			$(this).find("location").each(function() {
-				$(this).find("Image").each(function() {
-					image = $(this).text();
-				});
-			});
-		});
-		document.getElementById("preview").src = "./Images/Locations/" + image;
-	}
-	//Called after you press the Log In Button
-
+    //document.getElementById("description").innerHTML = "Welcome to OnlineRPG, " +
+    //	username + "! It's currently still in development.";
+    //document.getElementById("location").innerHTML = "Home Page";
+    
+    document.getElementById("location").innerHTML = name;
+    //Get world startingTitle
+    var desc;
+    var locationTitle = new Array();
+    var locationDesc = new Array();
+    var locationImage = new Array();
+    $(DaXML).find("locations").each(function() {
+        //alert("The raw locations xml data looks like this: " + $(this).text());
+        $(this).find("location").each(function() {
+            //alert("The location data is: " + $(this).text());
+            
+            locationTitle.push($("name", this).text());
+            locationDesc.push($("startingTitle", this).text());
+            locationImage.push($("Image", this).text());
+        });
+    });
+    var CorrectIndex;
+    for (i = 0; i < locationTitle.length; i++) 
+    {
+        if (locationTitle[i] == name)
+            {
+                CorrectIndex = i;
+            }
+    }
+    var DescLocationName = new Array();
+    var DescLocationTitleName = new Array();
+    $(DaXML).find("locations").each(function() {
+        $(this).find("location").each(function() {
+        if(locationTitle[CorrectIndex] == $('name', this).text())
+        {
+            $(this).find("toLocations").each(function(){
+                $(this).find("toLocation").each(function(){
+                    DescLocationName.push($('displayName', this).text());
+                    DescLocationTitleName.push($('titleName', this).text());
+                });
+            });
+        }
+        });
+    });
+    
+    var PlacesToGoText = " ";
+    for(i = 0; i < DescLocationName.length; i++)
+        {
+            PlacesToGoText += '<a href="#">' + DescLocationName[i] + '</a><br />';
+        }
+    
+    document.getElementById("description").innerHTML = "<p>" + locationDesc[CorrectIndex].replace("{username}", username) + "</p><br />" + 
+        "<h5>Places To Go</h5><p>" + 
+        PlacesToGoText
+        + "</p>";
+    var image;
+    $(DaXML).find("locations").each(function() {
+        $(this).find("location").each(function() {
+            $(this).find("Image").each(function() {
+                image = $(this).text();
+            });
+        });
+    });
+    document.getElementById("preview").src = "./Images/Locations/" + image;
+}
+    
+    
+//Called after you press the Log In Button
 function LogIn() {
-	for (i = 0, len = mydata.length; i < len; i++) {
+    for (i = 0, len = mydata.length; i < len; i++) {
 		if (document.getElementById('uname').value == mydata[i].username && document
 			.getElementById('pswrd').value == mydata[i].password) {
 			username = mydata[i].username;
@@ -84,7 +124,7 @@ function LogIn() {
 		}
 	}
 }
-		</script>
+</script>
 		<style>
 			@font-face {
                 font-family: Advent_Psychosis;
