@@ -5,10 +5,13 @@ Please note! When serving this locally it does not work with Chrome and may not 
 
 TODO:
 - Read more information from the XML
+- Optimize the InitWorld function. Make it look cleaner
 - Add People To See in each location (supported in XML, but not javascript)
 - Make it so that the Places To Go Link and the People to See Links do stuff.
 - Add the ability to talk to people
 - Add debugging (for example, if it wants to send you somewhere that doesn't have a location.)
+- Hash and Salt passwords (look into this more, it's currently not that important)
+- Add the ability to create users from the webpage (implement after figuring out how to hash and salt passwords)
 
 Cool stuff to look into: 
 - Google Polymer https://www.polymer-project.org/1.0/
