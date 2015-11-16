@@ -1,0 +1,1 @@
+make the width 500 pixels. You may want to crop it to get a better picture (for example, landscape pictures don't look very good)

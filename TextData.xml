@@ -30,13 +30,38 @@
         <location>
 			<name>The North Buckenshire Woods</name>
 			<startingTitle>WhoooOooOoo! Spooky woods! I'm not sure you're allowed to go here yet.</startingTitle>
-			<Image>Buckenshire.jpg</Image>
+			<Image>woods.jpg</Image>
 			<toLocations>
 				<toLocation>
 					<displayName>Back to Buckenshire</displayName>
 					<titleName>The Town of Buckenshire</titleName>
 				</toLocation>
             </toLocations>
+		</location>
+        <location>
+			<name>Blank</name>
+			<startingTitle>Blank. Useable variables: {username}.</startingTitle>
+			<Image>noimage.png</Image>
+			<toLocations>
+				<toLocation>
+					<displayName>display location 1</displayName>
+					<titleName>location 1</titleName>
+				</toLocation>
+                <toLocation>
+					<displayName>display location 2</displayName>
+					<titleName>location 2</titleName>
+				</toLocation>
+			</toLocations>
+			<people>
+				<person>
+					<displayName>display person 1</displayName>
+					<titleName>person 1</titleName>
+				</person>
+                <person>
+					<displayName>display person 2</displayName>
+					<titleName>person 2</titleName>
+				</person>
+			</people>
 		</location>
 	</locations>
 </main>
