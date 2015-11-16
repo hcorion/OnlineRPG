@@ -5,8 +5,8 @@ Please note! When serving this locally it does not work with Chrome and may not 
 
 TODO:
 - Read more information from the XML
+- Add people to the XML
 - Add People To See in each location (supported in XML, but not javascript)
-- Make it so that the Places To Go Link and the People to See Links do stuff.
 - Add the ability to talk to people
 - Add the ability for locations to have additional descriptions.
 - Add debugging (for example, if it wants to send you somewhere that doesn't have a location.)
