@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main>
+	<displayname>Fredrick A. Quackenboss</displayname>
+	<initialMessage>
+		<message>
+			<text>Hi, I'm Fredrick, although most of you newcomers call me FAQ. I wonder, is that some kind of acronym... /n Anyway, I've discovered alot of things about this world, and I'd be happy to share!</text>
+		</message>
+		<lowerData>
+			<responses>
+				<response>
+					<name>locationMessage</name>
+					<displayName>Where am I?</displayName>
+				</response>
+				<response>
+					<name>evilMessage</name>
+					<displayName>Is there some kind of evil dude trying to take over the world?</displayName>
+				</response>
+			</responses>
+			<toLocations>
+				<toLocation>
+					<name></name>
+					<displayName></displayName>
+				</toLocation>
+			</toLocations>
+		</lowerData>
+	</initialMessage>
+	<data>
+		<hostile>false</hostile>
+		<startMessage>initialMessage</startMessage>
+	</data>
+</main>

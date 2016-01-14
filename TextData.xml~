@@ -64,10 +64,4 @@
 			</people>
 		</location>
 	</locations>
-	<characters>
-		<character>
-			<titleName>Fredrick A. Quackenboss</titleName>
-			<dialogueFile>faq.xml</dialogueFile>
-		</character>
-	</characters>
 </main>

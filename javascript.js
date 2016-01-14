@@ -60,6 +60,10 @@ function LoadLocation(location) {
     var DescLocationName = new Array();
     var DescLocationTitleName = new Array();
     var placesToGoText = " ";
+    
+    var DescPeopleName = new Array();
+    var DescPeopleTitleName = new Array();
+    var peopleToSeeText = " ";
     //Querying the database to load the Description and Image.
     
 
@@ -76,6 +80,12 @@ function LoadLocation(location) {
                                 DescLocationTitleName.push($('titleName', this).text());
                             });
                         });
+                    $(this).find("people").each(function () {
+                            $(this).find("person").each(function () {
+                                DescPeopleName.push($('displayName', this).text());
+                                DescPeopleTitleName.push($('titleName', this).text());
+                            });
+                        });
                     }
                 });
             });
@@ -83,6 +93,10 @@ function LoadLocation(location) {
             //Assembling the placesToGoText
             for (p = 0; p < DescLocationName.length; p++) {
                 placesToGoText += '<a onclick="LoadLocation(' + "'" + DescLocationTitleName[p] + "'" + ');" href="#">' + DescLocationName[p] + '</a><br />';
+            }
+            //Assembling the peopleToSeeText
+            for (p = 0; p < DescPeopleName.length; p++) { //WARNING! this text was copied over and needs to be editited before it is usable.
+                PeopleToSeeText += '<a onclick="LoadLocation(' + "'" + DescLocationTitleName[p] + "'" + ');" href="#">' + DescLocationName[p] + '</a><br />';
             }
             //Setting the description of the location.
             document.getElementById("description").innerHTML = "<p>" + locationDesc[i].replace("{username}", username) + "</p><br />" +
@@ -94,6 +108,18 @@ function LoadLocation(location) {
         }
     }
     alert("Uh oh! We don't have that location in our database!");
+}
+
+function loadXML(xmlType) {
+	if(typeof xmlType != "string")
+	{alert("Hmm. your trying to load an xmltype that is not a string, it's a: " + typeof xmlType);}
+	else
+	{
+		if (xmlType == "dialogue") {
+			
+		}
+		else {alert("A XML of type, " + xmlType + ", is not a valid XML to load.");}
+	}
 }
 
 //Called after you press the Log In Button
