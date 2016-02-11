@@ -89,34 +89,42 @@ function LoadLocation(location) {
                     }
                 });
             });
-
             //Assembling the placesToGoText
             for (p = 0; p < DescLocationName.length; p++) {
                 placesToGoText += '<a onclick="LoadLocation(' + "'" + DescLocationTitleName[p] + "'" + ');" href="#">' + DescLocationName[p] + '</a><br />';
             }
             //Assembling the peopleToSeeText
             for (p = 0; p < DescPeopleName.length; p++) { //WARNING! this text was copied over and needs to be editited before it is usable.
-                PeopleToSeeText += '<a onclick="LoadLocation(' + "'" + DescLocationTitleName[p] + "'" + ');" href="#">' + DescLocationName[p] + '</a><br />';
+                peopleToSeeText += '<a href=\"#\" onclick=\"LoadXML(\'character\', \'' + DescPeopleTitleName[p] + '\');\">' + DescPeopleName[p] + '</a><br />';
+                //peopleToSeeText += '<a href="#" onclick="LoadXML("character", "Fredrick A. Quackenboss");"> Fredrick A. Quackenboss </a><br />';
             }
+            alert(peopleToSeeText);
             //Setting the description of the location.
             document.getElementById("description").innerHTML = "<p>" + locationDesc[i].replace("{username}", username) + "</p><br />" +
-                "<h5>Places To Go</h5><p>" + placesToGoText + "</p>";
+                "<h5>Places To Go</h5><p>" + placesToGoText + "</p><br />" + 
+                "<h5>People To See</h5>" + peopleToSeeText + "";
             //Setting the Title and image.
             document.getElementById("location").innerHTML = locationTitle[i];
             document.getElementById("preview").src = "./Images/Locations/" + locationImage[i];
-            return 0;
+            return 0;   
         }
     }
     alert("Uh oh! We don't have that location in our database!");
 }
 
-function loadXML(xmlType) {
+function loadXML(xmlType, dataname) {
 	if(typeof xmlType != "string")
 	{alert("Hmm. your trying to load an xmltype that is not a string, it's a: " + typeof xmlType);}
 	else
 	{
-		if (xmlType == "dialogue") {
-			
+		if (xmlType == "character") {
+			var character;
+			//for (i = 0, )
+			$(TextData).find("characters").each(function (){
+				$(this).find("character").each(function (){
+					spawnTown = ($("name", this).text());
+				});
+			});
 		}
 		else {alert("A XML of type, " + xmlType + ", is not a valid XML to load.");}
 	}
