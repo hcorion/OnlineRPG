@@ -1,11 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
     <head>
 		<meta charset="UTF-8">
 		<title>SimpleRPG Text-Based RPG</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="./css/toast.min.css">
 		<script src="./Javascript/jquery-2.2.0.min.js"></script>
 		<script type="text/javascript" src="userdata.json"></script>
         <script src="javascript.js"></script>
@@ -20,26 +19,18 @@
 		</style>
 	</head>
 	<body>
-		<p style="font-family: Advent_Psychosis; font-size: 250%; margin-bottom:5px; margin-top:20px;" align="center">OnlineRPG - Text Based RPG
-		</h2>
-		<div class="w3-row">
-			<div class="w3-half w3-container">
-				<div class="w3-container w3-card-8" style="min-height:460px">
+		<p style="font-family: Advent_Psychosis; font-size: 250%; margin-bottom:5px; margin-top:20px; text-align: center;">OnlineRPG - Text Based RPG
+                    <!--</h2-->
+                <div class="grid" style="padding-left: 20px;">
+			<div class="grid__col grid__col--1-of-2" style="box-shadow: -3px 0px 5px #888888; padding-left: 50px;">
 					<h3 id="location">Log In</h3>
 					<p id="description">Username: <br /><input type="text" name="uname" id="uname"><br />Password:<br /> <input type="text" name="pswrd" id="pswrd"><br /><button type="button" onclick="LogIn()">Log in!</button><br />It is currently impossible to create an account. You have to edit userdata.json directly.</p>
-				</div>
 			</div>
-			<div class="w3-half">
-				<div class="w3-card-8">
-					<div class="w3-image">
-						<img src="img_car.png" id="preview" alt="Car" style="display:block; margin-left:auto; margin-right:auto;">
-					</div>
-					<div class="w3-container">
-						<p>Image Description</p>
-					</div>
-				</div>
+			<div class="grid__col grid__col--1-of-2" style="box-shadow: 3px 0px 5px #888888;">
+                                <img src="img_car.png" id="preview" alt="Car" style="display:block; margin-left:auto; margin-right:auto;">
+                                <p>Image Description</p>
 			</div>
 		</div>
 	</body>
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </html>

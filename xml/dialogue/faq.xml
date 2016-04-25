@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main>
-	<displayname>Fredrick A. Quackenboss</displayname>
 	<initialMessage>
 		<message>
-			<text>Hi, I'm Fredrick, although most of you newcomers call me FAQ. I wonder, is that some kind of acronym... /n Anyway, I've discovered alot of things about this world, and I'd be happy to share!</text>
+			<text>Hi, I'm Fredrick, although most of you newcomers call me FAQ. I wonder, is that some kind of acronym... \n Anyway, I've discovered alot of things while exploring this world, and I'd be happy to share!</text>
 		</message>
 		<lowerData>
 			<responses>
@@ -18,14 +17,15 @@
 			</responses>
 			<toLocations>
 				<toLocation>
-					<name></name>
-					<displayName></displayName>
+					<name>The Town of Buckenshire</name>
+					<displayName>Go back to the town of Buckenshire</displayName>
 				</toLocation>
 			</toLocations>
 		</lowerData>
 	</initialMessage>
 	<data>
 		<hostile>false</hostile>
-		<startMessage>initialMessage</startMessage>
+		<startingDialogue>initialMessage</startingDialogue>
+                <displayName>Fredrick A. Quackenboss</displayName>
 	</data>
 </main>

@@ -98,7 +98,7 @@ function LoadLocation(location) {
                 peopleToSeeText += '<a href=\"#\" onclick=\"LoadXML(\'character\', \'' + DescPeopleTitleName[p] + '\');\">' + DescPeopleName[p] + '</a><br />';
                 //peopleToSeeText += '<a href="#" onclick="LoadXML("character", "Fredrick A. Quackenboss");"> Fredrick A. Quackenboss </a><br />';
             }
-            alert(peopleToSeeText);
+            //alert(peopleToSeeText);
             //Setting the description of the location.
             document.getElementById("description").innerHTML = "<p>" + locationDesc[i].replace("{username}", username) + "</p><br />" +
                 "<h5>Places To Go</h5><p>" + placesToGoText + "</p><br />" + 
@@ -112,20 +112,84 @@ function LoadLocation(location) {
     alert("Uh oh! We don't have that location in our database!");
 }
 
-function loadXML(xmlType, dataname) {
+function LoadXML(xmlType, dataname) {
 	if(typeof xmlType != "string")
 	{alert("Hmm. your trying to load an xmltype that is not a string, it's a: " + typeof xmlType);}
 	else
 	{
 		if (xmlType == "character") {
 			var character;
+                        var fileName;
 			//for (i = 0, )
 			$(TextData).find("characters").each(function (){
 				$(this).find("character").each(function (){
-					spawnTown = ($("name", this).text());
+					character = ($("titleName", this).text());
+                                        if (character == dataname)
+                                        {
+                                            fileName = ($("dialogueFile", this).text());
+                                            alert("Looks like  " + character + " has a dialogue file of " + fileName);
+                                            //Load the dialogue XML file.
+                                            var dialogueXML;
+                                            var displayName;
+                                            var startingDialogue;
+                                            $.ajax({
+                                                url: './xml/dialogue/' + fileName,
+                                                async: false,
+                                                dataType: "xml",
+                                                success: function (xml) {
+                                                    $(xml).find('main').each(function () {
+                                                        dialogueXML = $(this);
+                                                    });
+                                                }
+                                     
+                                        });
+                                            $(dialogueXML).find("data").each(function () {
+                                                displayName = ($("displayName", this).text());
+                                                startingDialogue = ($("startingDialogue", this).text());
+                                                if (startingDialogue == "")
+                                                {
+                                                    alert("StartingDialogue doesn't have a value in " + fileName + ". Assuming initialMessage.");
+                                                    startingDialogue = "initialMessage";
+                                                }
+                                                //Checking to see the character is hostile
+                                                //because then we might need to fight him.
+                                                if($("hostile", this).text() == "true"){
+                                                    alert("Woops, hostile NPCs are not supported yet!");
+                                                }
+                                                else if ($("hostile", this).text() == "false") {
+                                                    //Do anything specific with non-hostile NPCs
+                                                }
+                                                else ("Uh Oh. " + displayName + " doesn't appear to have a hostile value, or it is not true or false.")
+                                            });
+                                            var message;
+                                            var responsesText;
+                                            var toLocationsText;
+                                            $(dialogueXML).find(startingDialogue).each(function () {
+                                                $(this).find("message").each(function () {
+                                                    message = ($("text", this).text());
+                                                    alert(message);
+                                                });
+                                                $(this).find("lowerData").each(function () {
+                                                    $(this).find("responses").each(function () {
+                                                        $(this).find("response").each(function() {
+                                                            
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                            //Now that we've got all the data we need, show it to the user.
+                                            
+                                            document.getElementById("description").innerHTML = "<p>" + message.replace("{username}", username).replace('\\n', "<br />") + "</p><br />" +
+                "<h5>Responses</h5><p>" + displayName + "</p><br />" + 
+                "<h5>Leave conversation</h5>" + displayName + "";
+                                        }
 				});
 			});
 		}
+                else if (xmlType == "dialogue")
+                {
+                    
+                }
 		else {alert("A XML of type, " + xmlType + ", is not a valid XML to load.");}
 	}
 }

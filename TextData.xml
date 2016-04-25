@@ -36,8 +36,8 @@
 					<displayName>Back to Buckenshire</displayName>
 					<titleName>The Town of Buckenshire</titleName>
 				</toLocation>
-            </toLocations>
-		</location>
+                        </toLocations>
+        </location>
         <location>
 			<name>Blank</name>
 			<startingTitle>Blank. Useable variables: {username}.</startingTitle>
@@ -47,7 +47,7 @@
 					<displayName>display location 1</displayName>
 					<titleName>location 1</titleName>
 				</toLocation>
-                <toLocation>
+                                <toLocation>
 					<displayName>display location 2</displayName>
 					<titleName>location 2</titleName>
 				</toLocation>
@@ -57,7 +57,7 @@
 					<displayName>display person 1</displayName>
 					<titleName>person 1</titleName>
 				</person>
-                <person>
+                                <person>
 					<displayName>display person 2</displayName>
 					<titleName>person 2</titleName>
 				</person>
